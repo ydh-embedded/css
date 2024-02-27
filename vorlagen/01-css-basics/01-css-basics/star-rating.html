@@ -27,61 +27,32 @@
       fill: url(#half-star)
     }
 
+    .star-rating {
+      display: inline flex;
+      align-items: center;
+      gap: 0rem;
+    }
+
+    .rating {
+      margin: 0 0.5rem;
+
+      font-weight: bold;
+      font-family: monospace;
+      background-color: lightgray;
+      border-radius: 8px;
+      padding: 0.25rem;
+    }
+
   </style>
 
 </head>
 <body>
 
-  <article class="star-rating">
-    <svg width="50px" viewBox="0 0 200 200">
-      <defs>
-        <linearGradient id="full-star">
-          <stop offset="0" stop-color="gold"></stop>
-          <stop offset="1" stop-color="gold"></stop>
-        </linearGradient>
-        <linearGradient id="half-star">
-          <stop offset="0" stop-color="gold"></stop>
-          <stop offset="0.5" stop-color="gold"></stop>
-          <stop offset="0.5" stop-color="black"></stop>
-        </linearGradient>
-      </defs>
-      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
-    </svg>
-    <svg width="50px" viewBox="0 0 200 200">
-      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
-    </svg>
-    <svg width="50px" viewBox="0 0 200 200">
-      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
-    </svg>
-    <svg width="50px" viewBox="0 0 200 200">
-      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
-    </svg>
-    <svg width="50px" viewBox="0 0 200 200">
-      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
-    </svg>
-  </article>
+  <section>
+    <button class="rating-reset-button">Reset Ratings</button>
+    <input class="rating-input" type="text" placeholder="Enter rating"/>
+  </section>
 
-  <article class="star-rating">
-    <svg width="50px" viewBox="0 0 200 200">
-      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
-    </svg>
-    <svg width="50px" viewBox="0 0 200 200">
-      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
-    </svg>
-    <svg width="50px" viewBox="0 0 200 200">
-      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
-    </svg>
-    <svg width="50px" viewBox="0 0 200 200">
-      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
-    </svg>
-    <svg width="50px" viewBox="0 0 200 200">
-      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
-    </svg>
-  </article>
-
-  
-
-  <button class="rating-reset-button">Reset Ratings</button>
 
   
 </body>
