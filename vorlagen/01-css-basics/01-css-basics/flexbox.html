@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+
+    <style>
+        .flex-container {
+            display: flex;
+            /* Outer Display Type ist Block
+               und inner Display Type ist Flex. */
+            display: block flex;
+            background-color: coral;
+            height: 50px;
+
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            overflow: hidden;
+        }
+
+        .wrapping-flex-container {
+            display: block flex;
+            height: 100px;
+            background-color: teal;
+            flex-wrap: wrap-reverse;
+            align-items: center;
+            gap: 10px;
+            overflow: auto;
+        }
+
+    </style>
+
+</head>
+<body>
+    text
+    <div class="flex-container">
+        <!-- 
+            Im Flex Container gilt ein anderer Layoutmodus.
+            Wir befinden uns hier _nicht_ im Flow Layout.
+        -->
+        <!-- 
+            Dieses Flex Item soll
+            wachsen und schrumpfen dürfen.
+        -->
+        <button style="flex: 1 1 0">
+            <!-- 
+                Innerhalb des Buttons befinden wir uns
+                wieder im Flow Layout
+            -->
+            <p>Paragraph 1</p>
+            <p>Paragraph 2</p>
+        </button>
+        <button style="flex: 1 1 0">Button 2</button>
+        <p style="flex: 1 1 0">Das ist etwas Text.</p>
+        
+    </div>
+    text
+
+    <div class="wrapping-flex-container">
+        <button>click me 1</button>
+        <button>click me 2</button>
+        <button>click me 3</button>
+        <button>click me 4</button>
+        <button>click me 5</button>
+        <button>click me 6 </button>
+        <button>click me 7</button>
+        <button>click me 8</button>
+        <button>click me 9</button>
+        <button>click me 10</button>
+
+    </div>
+</body>
+</html>
