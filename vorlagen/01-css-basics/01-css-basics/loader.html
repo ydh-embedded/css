@@ -69,8 +69,16 @@
         transform: scaleY(1);
       }
 
+      10% {
+        fill: red;
+      }
+
       50% {
         transform: scaleY(0.25);
+      }
+
+      90% {
+        fill: blue;
       }
 
       100% {
@@ -94,16 +102,13 @@
       height: 20px;
     }
 
-    /* Hintergrundbalken */
+    /* Hintergrundbalken (für Browser, die auf WebKit basieren) */
     .loader progress::-webkit-progress-bar {
       border-radius: 50%;
       background-color: black;
-
     }
 
     .loader progress::-webkit-progress-inner-element {
-      /* border-radius: 4px; */
-
     }
 
     /* Fortschrittsbalken (liegt vor dem Hintergrundbalken) */
@@ -112,12 +117,20 @@
       border-radius: 20px;
     }
 
+    .loader progress::-moz-progress-bar {
+      background-color: red;
+    }
+
   </style>
 
 
 </head>
 
 <body>
+
+  <div class="box"></div>
+
+
   <article class="loader">
     <svg width="400px" height="200px" viewBox="0 0 450 200">
       <rect x="0" y="0" width="40" height="200" fill="red" />
@@ -133,7 +146,7 @@
       <rect x="450" y="0" width="40" height="200" fill="red" />
     </svg>
     <h1>Loading data. Please wait</h1>
-    <progress value="30" max="100">30%</progress>
+    <progress value="30"  max="100">30%</progress>
   </article>
 
 </body>

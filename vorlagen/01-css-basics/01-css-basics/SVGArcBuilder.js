@@ -124,26 +124,20 @@ class SVGArcBuilder {
   }
 }
 
-// Auskommentieren für Beispielpräsentation
-// const svg = document.querySelector("svg")
-// console.log(svg);
-// let arcBuilder = new SVGArcBuilder()
-// arcBuilder.setCenterX(50).setCenterY(50).setRadius(50)
-//   .setExtraAttribute("stroke-width", 5).setExtraAttribute("stroke", "red").setExtraAttribute("stroke-linecap", "round")
-//   .setExtraAttribute("fill", "transparent")
-//   .setStartAngle(-90).setEndAngle(200)
+//Auskommentieren für Beispielpräsentation
+const svg = document.querySelector("svg")
+console.log(svg);
+let arcBuilder = new SVGArcBuilder()
+arcBuilder.setCenterX(50).setCenterY(50).setRadius(50)
+  .setExtraAttribute("stroke-width", 5).setExtraAttribute("stroke", "red").setExtraAttribute("stroke-linecap", "round")
+  .setExtraAttribute("fill", "transparent")
+  .setStartAngle(-90).setEndAngle(200)
 
-// const path1 = arcBuilder.build()
+const path1 = arcBuilder.build()
 
-// arcBuilder.setExtraAttribute("stroke", "blue")
-//   .setRadius(20)
-//   .setStartAngle(-30).setEndAngle(120)
+arcBuilder.setStartAngle(45).setEndAngle(180)
+.setExtraAttribute("stroke", "blue")
 
-// const path2 = arcBuilder.build()
 
-// arcBuilder.setCenterX(35).setCenterY(30).setRadius(20)
-//   .setExtraAttribute("stroke", "green")
 
-// const path3 = arcBuilder.build()
-
-// svg.append(path1, path2, path3)
+svg.append(path1, arcBuilder.build())

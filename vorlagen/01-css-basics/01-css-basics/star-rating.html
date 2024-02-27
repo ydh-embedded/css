@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="star-rating.js" defer></script>
+  <title>Star Rating</title>
+
+  <style>
+    .star {
+      /* fill: gray; */
+      /* stroke: black; */
+      stroke-width: 1;
+    }
+
+    .star:hover {
+      fill: goldenrod;
+      stroke-width: 3;
+    }
+
+    .star.filled {
+      /* fill: red; */
+      fill: url(#full-star);
+    }
+
+    .star.half-filled {
+      fill: url(#half-star)
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <article class="star-rating">
+    <svg width="50px" viewBox="0 0 200 200">
+      <defs>
+        <linearGradient id="full-star">
+          <stop offset="0" stop-color="gold"></stop>
+          <stop offset="1" stop-color="gold"></stop>
+        </linearGradient>
+        <linearGradient id="half-star">
+          <stop offset="0" stop-color="gold"></stop>
+          <stop offset="0.5" stop-color="gold"></stop>
+          <stop offset="0.5" stop-color="black"></stop>
+        </linearGradient>
+      </defs>
+      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
+    </svg>
+    <svg width="50px" viewBox="0 0 200 200">
+      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
+    </svg>
+    <svg width="50px" viewBox="0 0 200 200">
+      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
+    </svg>
+    <svg width="50px" viewBox="0 0 200 200">
+      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
+    </svg>
+    <svg width="50px" viewBox="0 0 200 200">
+      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
+    </svg>
+  </article>
+
+  <article class="star-rating">
+    <svg width="50px" viewBox="0 0 200 200">
+      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
+    </svg>
+    <svg width="50px" viewBox="0 0 200 200">
+      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
+    </svg>
+    <svg width="50px" viewBox="0 0 200 200">
+      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
+    </svg>
+    <svg width="50px" viewBox="0 0 200 200">
+      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
+    </svg>
+    <svg width="50px" viewBox="0 0 200 200">
+      <polygon points="100,10 40,198 190,78 10,78 160,198" class="star"/>
+    </svg>
+  </article>
+
+  
+
+  <button class="rating-reset-button">Reset Ratings</button>
+
+  
+</body>
+</html>
