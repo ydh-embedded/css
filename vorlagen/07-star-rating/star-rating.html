@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="star-rating.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snapsvg/0.5.1/snap.svg-min.js"></script>
+
+    <script type="text/javascript">
+
+        
+	$(document).ready(function(){
+		var stars = 0;
+		$("#feedback .oc").click(function(){
+			if($("#feedback .oc").hasClass("open")){
+				$("#feedback").animate({left:'-209px'},1000, function(){
+					$("#feedback .oc.open").removeClass("open");
+				});
+			} else {
+				$("#feedback").animate({left:'-1px'},1000, function(){
+					$("#feedback .oc").addClass("open");
+				});
+			}
+		});
+		$(".star").click(function(){
+			stars = $("#feedback .star").index(this)+1;
+			$(".star:lt("+stars+")").removeClass("empty");
+			$(".star:eq("+stars+")").addClass("empty");
+			$(".star:gt("+stars+")").addClass("empty");
+		});
+		$("#feedback .submit").click(function(){
+			alert("Es wurden "+stars+" Sterne vergeben. Positives Feedback: "+$("#feedback .pro").val()+" || Negatives Feedback: "+$("#feedback .contra").val());
+		});
+	});
+  
+    </script>
+
+
+
+
+
+
+    <title>Star-Rating</title>
+</head>
+
+<body>
+    <style>
+
+    button {
+		background-color: white;
+		border: 1px solid #aaa;
+		border-radius: 4px;
+		cursor: default;
+		padding: 1px 8px;
+	}
+	button:hover {
+		border: 1px solid #DDA019;
+		box-shadow: 0 0 1px #999999;
+	}
+	
+	#feedback {
+		width: 187px;
+		position: fixed;
+		left: -209px;
+		top: 10%;
+		border: 1px solid #aaa;
+		border-radius: 0 0 4px 0;
+		padding: 10px;
+		font: 12px/14px "Trebuchet MS";
+	}
+	
+	#feedback .oc {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		left: 207px; /* #feedback width + padding x2 */
+		top: -1px;
+		padding: 10px;
+		background: url(right.png) no-repeat 50% 50% white;
+		border: 1px solid #aaa;
+		border-left: 0;
+		border-radius: 0 4px 4px 0;
+	}
+	
+	#feedback .oc.open {
+		background: url(left.png) no-repeat 50% 50% white;
+		padding: 10px;
+	}
+	
+	#feedback .label {
+		width: 64px;
+		height: 14px;
+		position: absolute;
+		left: 178px;
+		top: 69px;
+		padding: 4px 4px 8px 16px;
+		border: 1px solid #aaa;
+		border-left: 0;
+		border-bottom: 0;
+		border-radius: 0 4px 0 0;
+		-moz-transform: rotate(90deg);
+		-webkit-transform: rotate(90deg);
+		-o-transform: rotate(90deg);
+		-ms-transform: rotate(90deg);
+		background-color: white;
+	}
+	
+	#feedback .rating {
+		font: bold 14px/14px "Trebuchet MS";
+	}
+	
+	#feedback #stars {
+		margin: 7px 0 4px;
+	}
+	
+	#feedback .star.empty {
+		height: 16px;
+		width: 19px;
+		display: inline-block;
+		background: url(star-e.png) no-repeat;
+	}
+	
+	#feedback .star {
+		height: 16px;
+		width: 19px;
+		display: inline-block;
+		background: url(star.png) no-repeat;
+	}
+	
+	#feedback textarea {
+		height: 70px;
+		width: 184px;
+		border: 1px solid #aaa;
+		border-radius: 4px;
+		margin-bottom: 8px;
+		font: 12px/14px Arial;
+	}
+  
+    </style>
+
+	<section>
+			<button class="rating-reset-button">Reset Ratings</button>
+			<input class="rating-input" type="text">
+	</section>
+
+	<div id="feedback" style="left: -1px;">
+		<div class="oc open"></div>
+		<div class="label">Feedback</div>
+		<span class="rating">Ihre Bewertung:</span>
+		<div id="stars">
+			<div class="1 star"></div>
+			<div class="2 star"></div>
+			<div class="3 star"></div>
+			<div class="4 star"></div>
+			<div class="5 star"></div>
+		</div>
+		Was finden Sie gut?
+		<textarea class="pro" rows="100" cols="100"></textarea>
+		Was würden Sie wie verbessern?
+		<textarea class="contra" rows="100" cols="100"></textarea>
+		<button class="submit">Abschicken</button>
+	</div> <!-- #feedback -->
+   
+</body>
+</html>
