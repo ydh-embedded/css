@@ -1,6 +1,8 @@
 const millisecondsPerDay = 24 * 60 * 60 * 1000;
 const millisecondsPerWeek = 7 * millisecondsPerDay;
 
+ /* #FIXME der 4.Jan ist immer der Beginn der KW01 */
+
 function getStartOfFirstCalendarWeek(year) {
   // Definition: Die erste Kalenderwoche eines Jahres enthält immer den 4. Januar.
   // Eine Kalenderwoche beginnt immer mit einem Montag (das muss nicht der 1. Januar sein!)
@@ -44,53 +46,50 @@ function getStartAndEndOfCalendarWeek(year, week) {
 }
 
 function getCalendarWeek(date) {
-  let year = date.getFullYear() ;
-  let week = 1 ;
-  const totalWeeks = getTotalCalendarWeeksPerYear(year) ;
+  let year = date.getFullYear()
+  let week = 1
+  const totalWeeks = getTotalCalendarWeeksPerYear(year)
 
-  for ( ; wee < totalWeeks ; week++){
-    const startOfWeek = getStartOfCalendarWeek( year , week    ) ;
-    const endOfWeek   = getStartOfCalendarWeek( year , week +1 ) ;
-    if (date >= startOfWeek && date < endOfWeek){
+  for (; week <= totalWeeks; week++) {
+    const startOfWeek = getStartOfCalendarWeek(year, week)
+    const endOfWeek = getStartOfCalendarWeek(year, week + 1)
+    if (date >= startOfWeek && date < endOfWeek) {
       break
     }
   }
 
+  // Prüfe ob Datum in der letzten KW des Vorjahres oder in der ersten
+  // KW des Folgejahres liegt.
   if (week > totalWeeks) {
+    const startOfNextYear = getStartOfFirstCalendarWeek(year + 1)
+    const totalWeeksOfPreviousYear = getTotalCalendarWeeksPerYear(year - 1)
+    const startOfLastCalendarWeekOfPreviousYear = getStartOfCalendarWeek(year - 1, 
+      totalWeeksOfPreviousYear)
 
-    const startOfNextYear             = getStartOfCalendarWeek(year + 1)
-    const totalWeeksOfPreviousYear    = getStartOfCalendarWeek(year - 1)
-    const startOfLastCalendarWeekOfPreviousYear = getStartOfCalendarWeek(year - 1 , totalWeeksOfPreviousYear)
-
-      if (date>= startOfNextYear){
-        week = 1          ;
-        year = year + 1   ;
-      } else if ( date >= startOfLastCalendarWeekOfPreviousYear) {
-        week = totalWeeksOfPreviousYear ;
-        year = year - 1   ;
-      } else {
-        throw new Error ("Berechnungsfehler bei Kalenderwochenberechnung");
-      }
+    if (date >= startOfNextYear) {
+      week = 1
+      year = year + 1
+    } else if (date >= startOfLastCalendarWeekOfPreviousYear) {
+      week = totalWeeksOfPreviousYear
+      year = year - 1
+    } else {
+      throw new Error("Berechnungsfehler bei Kalenderwochenberechnung")
+    }
   }
-
-
 
   return {
-    year: year ,
-    week: week ,
+    year: year,
+    week: week,
   }
-
-
-
 }
 
 export {
-  getCalendarWeek               ,
-  getEndOfCalendarWeek          ,
-  getStartOfCalendarWeek        ,
-  getStartAndEndOfCalendarWeek  ,
-  getStartOfFirstCalendarWeek   ,
-  getTotalCalendarWeeksPerYear  ,
+  getCalendarWeek,
+  getEndOfCalendarWeek,
+  getStartOfCalendarWeek,
+  getStartAndEndOfCalendarWeek,
+  getStartOfFirstCalendarWeek,
+  getTotalCalendarWeeksPerYear,
 }
 
 // let startDate = new Date("2024-01-31T00:00Z") // 2024-01-31 00:00 UTC
