@@ -43,12 +43,54 @@ function getStartAndEndOfCalendarWeek(year, week) {
   }
 }
 
+function getCalendarWeek(date) {
+  let year = date.getFullYear() ;
+  let week = 1 ;
+  const totalWeeks = getTotalCalendarWeeksPerYear(year) ;
+
+  for ( ; wee < totalWeeks ; week++){
+    const startOfWeek = getStartOfCalendarWeek( year , week    ) ;
+    const endOfWeek   = getStartOfCalendarWeek( year , week +1 ) ;
+    if (date >= startOfWeek && date < endOfWeek){
+      break
+    }
+  }
+
+  if (week > totalWeeks) {
+
+    const startOfNextYear             = getStartOfCalendarWeek(year + 1)
+    const totalWeeksOfPreviousYear    = getStartOfCalendarWeek(year - 1)
+    const startOfLastCalendarWeekOfPreviousYear = getStartOfCalendarWeek(year - 1 , totalWeeksOfPreviousYear)
+
+      if (date>= startOfNextYear){
+        week = 1          ;
+        year = year + 1   ;
+      } else if ( date >= startOfLastCalendarWeekOfPreviousYear) {
+        week = totalWeeksOfPreviousYear ;
+        year = year - 1   ;
+      } else {
+        throw new Error ("Berechnungsfehler bei Kalenderwochenberechnung");
+      }
+  }
+
+
+
+  return {
+    year: year ,
+    week: week ,
+  }
+
+
+
+}
+
 export {
-  getEndOfCalendarWeek,
-  getStartOfCalendarWeek,
-  getStartAndEndOfCalendarWeek,
-  getStartOfFirstCalendarWeek,
-  getTotalCalendarWeeksPerYear,
+  getCalendarWeek               ,
+  getEndOfCalendarWeek          ,
+  getStartOfCalendarWeek        ,
+  getStartAndEndOfCalendarWeek  ,
+  getStartOfFirstCalendarWeek   ,
+  getTotalCalendarWeeksPerYear  ,
 }
 
 // let startDate = new Date("2024-01-31T00:00Z") // 2024-01-31 00:00 UTC
