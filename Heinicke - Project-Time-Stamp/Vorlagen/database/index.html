@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="module" src="database.js"></script>
+  <script type="module">
+    import { Record } from "./database.js"
+    let r = new Record("S", -2)
+    console.log(r.description, r.totalHours)
+    r.totalHours = -2
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
