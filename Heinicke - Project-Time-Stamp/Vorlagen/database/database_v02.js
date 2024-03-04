@@ -3,6 +3,7 @@ import * as CalendarWeek from "./calendar-week.js"
 class Record {
   #description = ""
   #totalHours = 0
+  #totalHours2 = 0
 
   constructor(description, totalHours) {
     this.description = description
