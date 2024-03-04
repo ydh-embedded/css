@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Time-Stamp</title>
 </head>
 <body>
@@ -43,8 +44,35 @@
             background-color:    #e4cbbb ;
 
         }
+
         main {
             display: grid;
+            grid-template-columns: 1fr 4fr;       
+
+        }
+
+        .navigation {
+            
+            font-size:           3.3vh ;
+            font-weight:            505;
+            margin-left:           0rem;
+            color:            #b89c8a;
+            
+            
+            background-color: #333;
+            padding: var(--default-padding-vertikal);
+        }
+        
+        .navigation-flex{
+            
+            
+            display:               flex;
+            align-content:       center;
+            justify-content:       left;
+            min-width:      fit-content;
+            align-items:         center;
+            text-align:          center;
+            flex-flow:           column;
 
         }
         
@@ -76,6 +104,7 @@
             flex-direction: column;
             justify-content: space-evenly;
             align-content: center;
+            
          /* margin: 0 64; */
             
         }
@@ -88,8 +117,9 @@
 
         .message-content > p {
 
-            font-size: 3.0vh ;
-            font-weight: 303;
+            font-size:        3.0vh ;
+            font-weight:        303;
+            padding-right:    1rem ;
         }
 
         .message-timestamp {
@@ -151,8 +181,24 @@
     <main>
 
         <div class="navigation">
-            <p>Navigation</p>
+            <span class="navigation-flex">
+                <h3>Kalender</h3>
+                <span>
+                    <iframe src="https://example.com/calendar-widget" width="400" height="300" frameborder="0" scrolling="no"></iframe>
+                    
+                </span>
+                
+                <span>
+                    <a href="backButton">&lt;</a>
+                    <span>Tag</span>
+                    <a href="forwardButton">&gt;</a>   
+                </span>
+
+            </span>
         </div>
+
+        <div class="content">
+
 
         <div class="container">
 
@@ -182,7 +228,7 @@
         
                     </div>
         
-                    
+
                 </section>
                 <span class="card-aside">
                     <button class="message-tag image-button">
@@ -332,6 +378,7 @@
 
         </div>
 
+        </div>
 
         	
 
