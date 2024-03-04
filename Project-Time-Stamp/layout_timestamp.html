@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,40 +34,38 @@
 
         header {
             margin-top: 2rem;
-            background-color:    #444444 ;
+            background-color: #444444;
         }
 
         body {
-            background-color:    #5765b6 ;
-            background-color:    #c4bfeb ;
+            background-color: #5765b6;
+            background-color: #c4bfeb;
             background-color:    #e4cbbb ;
-
-        }
-        main {
-            display: grid;
 
         }
         
         .container {
             
+
             display: grid;
-            grid-template-columns:    1fr  ;
-            grid-gap:                 20px ;
-            width:                    100% ;
-            max-width:              1200px ;
+            grid-template-columns: 1fr ;
+            grid-gap:              20px;
+            width:                 100%;
+            max-width:           1200px;
             background-color:    #dac1b1 ;
             
             margin: 0 auto;
         }
         
+        
         .card {
-
-            background-color:   #e3d5cc ;
+            
+        /* background-color: #08abeb6e; */
+            background-color: #e3d5cc;
             margin:             var(--default-margin-horizontal) var(--default-margin-vertikal);
             padding:            var(--default-padding-horizontal) var(--default-padding-vertikal);
             border-radius:      var(--default-radius-card);
             display: flex;
-         
 
         }
 
@@ -76,21 +74,16 @@
             flex-direction: column;
             justify-content: space-evenly;
             align-content: center;
-         /* margin: 0 64; */
+            margin: 0 64;
             
         }
 
         .message-title {
 
             font-size: 3.3vh ;
-            font-weight: 404;
-        }
-
-        .message-content > p {
-
-            font-size: 3.0vh ;
             font-weight: 303;
         }
+
 
         .message-timestamp {
 
@@ -142,6 +135,7 @@
              cursor: not-allowed;
         }
 
+
     </style>
 
 
@@ -149,10 +143,6 @@
     <header></header>
     
     <main>
-
-        <div class="navigation">
-            <p>Navigation</p>
-        </div>
 
         <div class="container">
 
@@ -185,7 +175,7 @@
                 </section>
                 <span class="card-aside">
                     <button class="message-tag image-button">
-                        <span class="material-symbols-outlined" >disabled_by_default</span>
+                        <span class="material-symbols-outlined">disabled_by_default</span>
                         DEL
                     </button>
                     <button class="message-tag image-button">
