@@ -30,10 +30,13 @@
             --default-radius-min:                   4px ;
 
             --default-margin-horizontal:          4.0vh ;      /* 2.0rem  */
+            --default-margin-horizontal-min:      1.0vh ;      /* 0.5rem  */
             --default-margin-vertikal:            7.0vw ;      /* 4.0rem  */
             --default-margin-vertikal-min:       0.5rem ;      /*   rem  */
 
             --default-padding-horizontal:         11.2px ;      /* 0.7rem  */ 
+            
+            --default-padding-horizontal-min:     0.5rem ;      /*   rem  */
             --default-padding-vertikal:           22.4px ;      /* 1.4rem  */
             --default-padding-vertikal-min:       0.5rem ;      /*   rem  */
 
@@ -59,7 +62,7 @@
 
         main {
             display: grid;
-            grid-template-columns: 1fr 2fr;       
+            grid-template-columns: 1fr 1fr 0.5fr;       
 
         }
 
@@ -169,8 +172,8 @@
             display:                 flex ;
             flex-direction:        column ;
             justify-content: space-evenly ;
-            align-content:         right ;  
-            width:                   60px ;
+            width:                   55px ;
+            padding: var(--default-padding-vertikal-min) var(--default-padding-horizontal-min);
             
             
         }
@@ -221,6 +224,8 @@
             max-width:              100%;
             max-height:             100%;
 
+            margin-bottom: var(--default-margin-horizontal-min);
+
         }
 
         button:hover {
@@ -261,7 +266,7 @@
         .uppercase {
             text-transform: uppercase;
         }
-        
+
         footer {
             background-color: #3f342d;
         }
