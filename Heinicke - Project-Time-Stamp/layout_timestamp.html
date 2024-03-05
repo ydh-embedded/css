@@ -3,7 +3,8 @@
 <html lang="de">
 <head>
     <meta   charset ="UTF-8,">
-    <meta   name    ="viewport" content="width=device-width, initial-scale=1.0">
+    <meta   name="viewport" content="width=device-width, initial-scale=1.0">
+
 <!--<script src     ="https://code.jquery.com/jquery-3.6.0.min.js"> </script> -->
 <!--<script src     ="fullcalendar.min.js">                         </script> -->
     <script src     ="App.js">                         </script>
@@ -28,11 +29,17 @@
         * {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             border-radius: var(--default-radius-min) ;
-            --default-radius-min:                    4px ;
-            --default-margin-horizontal:          4.0vh ;      /* 2.0rem  */
-            --default-margin-vertikal:            7.0vw ;      /* 4.0rem  */
-            --default-padding-horizontal:         11.2px ;      /* 0.7rem  */ 
-            --default-padding-vertikal:           22.4px ;      /* 1.4rem  */
+
+            --default-radius-min:                   4px ;
+
+            --default-margin-horizontal:          4.0vh ;     /*  2.0rem  */
+            --default-margin-vertikal:            7.0vw ;     /*  4.0rem  */
+            --default-margin-vertikal-min:          2vh ;     /*  1.14rem */
+
+            --default-padding-horizontal:         11.2px ;     /* 0.7rem  */ 
+            --default-padding-vertikal:           22.4px ;     /* 1.4rem  */
+            --default-padding-vertikal-min:          2px ;     /* 0.25rem */
+
             --default-padding-container:    calc(var(--default-padding-horizontal) + var(--default-padding-card));
             --default-padding-card:         var(--default-padding-horizontal);
             --default-radius-card:          calc(var(--default-padding-horizontal) + var(--default-radius-min));
@@ -56,7 +63,8 @@
 
         main {
             display: grid;
-            grid-template-columns: 1fr 2fr;       
+            grid-template-columns: 768px 0.5fr;       
+            grid-template-rows:    max-content;
 
         }
 
@@ -64,7 +72,8 @@
             
             font-size:           3.3vh ;
             font-weight:            505;
-            margin-left:           0rem;
+            margin-left:           var(--default-margin-vertikal);
+            margin-right:          1rem;
             color:            #b89c8a;
             
             
@@ -72,7 +81,7 @@
          /* padding:                var(--default-padding-vertikal); */
         }
         
-        .navigation-flex{
+        .navigation-flex {
             
             
             display:               flex;
@@ -82,7 +91,46 @@
             align-items:         center;
             text-align:          center;
             flex-flow:           column;
-
+            width:                 auto;
+            overflow-y:            auto;
+            padding: var(--default-padding-vertikal);
+            margin: var(--default-margin-vertikal-min);
+        }
+        
+        .calendar {
+            background-color:         var(--nav-bgc);
+            width: 100%;
+            height: 100%;
+        }
+        
+        .calendar-widget{
+            background-color: var(--nav-bgc);
+        }
+        
+        .calendar-widget-grid-container {
+            display:                           grid;
+            grid-template-columns:  repeat(7, 7vw);
+            grid-template-rows:     repeat(7,  5vw);
+            justify-content:                 center;
+            min-height:                        10vw;
+            min-width:                         10vw;
+            margin:                               0;
+            justify-items:                   center;
+        }
+        
+        .calendar-widget-grid-item {
+            background-color:      var(--header-bgc);
+            border:       0.5px solid var(--nav-bgc);
+            display:                            flex;
+            align-items:                      center;
+            justify-content:                  center;
+            font-size:                         2.2vh;
+            margin:                                0;
+        }
+        
+        .calendar-widget-grid-item >.btn {
+            min-width: 100%;
+            min-height: 100%;
         }
         
         .container {
@@ -94,21 +142,21 @@
             min-width:               425px ;
             max-width:              1200px ;
             background-color:    #dac1b1 ;
-         /* padding:             var(--default-padding-vertikal); */
+            /* padding:             var(--default-padding-vertikal); */
             margin: 0 0 0 0;
         }
         
         .card {
-
+            
             background-color:   #e3d5cc ;
             margin:             var(--default-margin-horizontal) var(--default-margin-vertikal);
             padding:            var(--default-padding-horizontal) var(--default-padding-vertikal);
             border-radius:      var(--default-radius-card);
             display: flex;
-         
+            
 
         }
-
+        
         .card-aside {
             display:                 flex ;
             flex-direction:        column ;
@@ -116,7 +164,7 @@
             align-content:         center ;  
             
         }
-
+        
         .message-title {
 
             font-size:     3.3vh ;
@@ -204,41 +252,6 @@
             text-transform: uppercase;
         }
 
-        .calendar {
-            background-color: var(--nav-bgc);
-            padding: var(--default-padding-vertikal);
-            margin: 0;
-        }
-
-        .calendar-widget{
-            background-color: var(--nav-bgc);
-        }
-
-        .calendar-widget-grid-container {
-            display:                           grid;
-            grid-template-columns:  repeat(7, 7vh);
-            grid-template-rows:     repeat(7,  5vh);
-            justify-content:                 center;
-            min-height:                        10vh;
-            min-width:                         10vw;
-            margin:                               0;
-            justify-items:                   center;
-        }
-
-        .calendar-widget-grid-item {
-            background-color:      var(--header-bgc);
-            border:       0.5px solid var(--nav-bgc);
-            display:                            flex;
-            align-items:                      center;
-            justify-content:                  center;
-            font-size:                         2.2vh;
-            margin:                                0;
-        }
-
-        .calendar-widget-grid-item >.btn {
-            min-width: 100%;
-            min-height: 100%;
-        }
 
 
         @scope (main) {
@@ -265,11 +278,95 @@
     
     <main>
 
+                
+        <div class="navigation" id="calendar-NAV">
+            <span class="navigation-flex">
+   
+               <div class="calendar , uppercase">
+   
+                   <span><h3>Calendar</h3></span>
+   
+                   <span>
+                       <!-- <iframe src="" width="400" height="300" frameborder="0" scrolling="no"></iframe> -->
+                       <div class="calendar-widget">
+                           <!-- #FIXME grid Kalender implementieren -->
+                           <div class="calendar-widget-grid-container">
+                               <div class="calendar-widget-grid-item , uppercase ">So</div>
+                               <div class="calendar-widget-grid-item , uppercase ">Mo</div>
+                               <div class="calendar-widget-grid-item , uppercase ">Di</div>
+                               <div class="calendar-widget-grid-item , uppercase ">Mi</div>
+                               <div class="calendar-widget-grid-item , uppercase ">Do</div>
+                               <div class="calendar-widget-grid-item , uppercase ">Fr</div>
+                               <div class="calendar-widget-grid-item , uppercase ">Sa</div>
+                               <div class="calendar-widget-grid-item">1</div>
+                               <div class="calendar-widget-grid-item">2</div>
+                               <div class="calendar-widget-grid-item">3</div>
+                               <div class="calendar-widget-grid-item">4</div>
+                               <div class="calendar-widget-grid-item">5</div>
+                               <div class="calendar-widget-grid-item">6</div>
+                               <div class="calendar-widget-grid-item">7</div>
+                               <div class="calendar-widget-grid-item">8</div>
+                               <div class="calendar-widget-grid-item">9</div>
+                               <div class="calendar-widget-grid-item">10</div>
+                               <div class="calendar-widget-grid-item">11</div>
+                               <div class="calendar-widget-grid-item">12</div>
+                               <div class="calendar-widget-grid-item">13</div>
+                               <div class="calendar-widget-grid-item">14</div>
+                               <div class="calendar-widget-grid-item">15</div>
+                               <div class="calendar-widget-grid-item">16</div>
+                               <div class="calendar-widget-grid-item">17</div>
+                               <div class="calendar-widget-grid-item">18</div>
+                               <div class="calendar-widget-grid-item">19</div>
+                               <div class="calendar-widget-grid-item">20</div>
+                               <div class="calendar-widget-grid-item">21</div>
+                               <div class="calendar-widget-grid-item">22</div>
+                               <div class="calendar-widget-grid-item">23</div>
+                               <div class="calendar-widget-grid-item">24</div>
+                               <div class="calendar-widget-grid-item">25</div>
+                               <div class="calendar-widget-grid-item">26</div>
+                               <div class="calendar-widget-grid-item">27</div>
+                               <div class="calendar-widget-grid-item">28</div>
+                               <div class="calendar-widget-grid-item">29</div>
+                               <div class="calendar-widget-grid-item">30</div>
+                               <div class="calendar-widget-grid-item">31</div>
+                               <div class="calendar-widget-grid-item">32</div>
+                               <div class="calendar-widget-grid-item">33</div>
+                               <div class="calendar-widget-grid-item">34</div>
+                               <div class="calendar-widget-grid-item">35</div>
+                               <div class="calendar-widget-grid-item">36</div>
+                               <div class="calendar-widget-grid-item">37</div>
+                               <div class="calendar-widget-grid-item">38</div>
+                               <div class="calendar-widget-grid-item">39</div>
+                               <div class="calendar-widget-grid-item">40</div>
+                               <div class="calendar-widget-grid-item">41</div>
+                               <div class="calendar-widget-grid-item">42</div>
+   
+                               <div class="calendar-widget-grid-item"></div>
+                               <div class="calendar-widget-grid-item"><button class="material-symbols-outlined btn" id="navBack" tabindex="0" style="font-size: 3vh ; color: var(--nav-bgc);">arrow_back_ios</button></div>
+                               <div class="calendar-widget-grid-item"></div>
+                               <div class="calendar-widget-grid-item , uppercase">day</div>
+                               <div class="calendar-widget-grid-item"></div>
+                               <div class="calendar-widget-grid-item"><button class="material-symbols-outlined btn" id="navForward" tabindex="1" style="font-size: 3vh ; color: var(--nav-bgc);">arrow_forward_ios</button></div>
+                               <div class="calendar-widget-grid-item"></div>
+                               <div class="calendar-widget-grid-item"></div>
+                               
+                               
+                           </div>
+   
+                       </div>
+                   </span>
+                   
+                   <span>
+                       <!-- <iframe src="https://calendar.google.com/calendar/embed?src=w9bd9sign@gmail.com&ctz=America%2FNew_York" style="border: 0" width="400" height="300" frameborder="0" scrolling="no"></iframe> -->
+                   </span>
+   
+               </div>
+            </span>
+        </div>
         
-        <div class="content">
+        <div class="content" id="message-content">
 
-
-        <div class="container">
+            <div class="container">
 
             <div class="card">
 
@@ -308,107 +405,15 @@
                     </button>
                 </span>
             </div>
-
-        </div>
-
-        <div class="container" id="card-container">
+            
+            <div class="container" id="card-container">
                 ...
-        </div>
-
-
-
-
-
-
-
-        </div>
-
-
-        
-        <div class="navigation">
-        <span class="navigation-flex">
-
-            <div class="calendar , uppercase">
-
-                <h3>Calendar</h3>
-
-                <span>
-                    <!-- <iframe src="" width="400" height="300" frameborder="0" scrolling="no"></iframe> -->
-                    <div class="calendar-widget">
-                        <!-- #FIXME grid Kalender implementieren -->
-                        <div class="calendar-widget-grid-container">
-                            <div class="calendar-widget-grid-item , uppercase ">So</div>
-                            <div class="calendar-widget-grid-item , uppercase ">Mo</div>
-                            <div class="calendar-widget-grid-item , uppercase ">Di</div>
-                            <div class="calendar-widget-grid-item , uppercase ">Mi</div>
-                            <div class="calendar-widget-grid-item , uppercase ">Do</div>
-                            <div class="calendar-widget-grid-item , uppercase ">Fr</div>
-                            <div class="calendar-widget-grid-item , uppercase ">Sa</div>
-                            <div class="calendar-widget-grid-item">1</div>
-                            <div class="calendar-widget-grid-item">2</div>
-                            <div class="calendar-widget-grid-item">3</div>
-                            <div class="calendar-widget-grid-item">4</div>
-                            <div class="calendar-widget-grid-item">5</div>
-                            <div class="calendar-widget-grid-item">6</div>
-                            <div class="calendar-widget-grid-item">7</div>
-                            <div class="calendar-widget-grid-item">8</div>
-                            <div class="calendar-widget-grid-item">9</div>
-                            <div class="calendar-widget-grid-item">10</div>
-                            <div class="calendar-widget-grid-item">11</div>
-                            <div class="calendar-widget-grid-item">12</div>
-                            <div class="calendar-widget-grid-item">13</div>
-                            <div class="calendar-widget-grid-item">14</div>
-                            <div class="calendar-widget-grid-item">15</div>
-                            <div class="calendar-widget-grid-item">16</div>
-                            <div class="calendar-widget-grid-item">17</div>
-                            <div class="calendar-widget-grid-item">18</div>
-                            <div class="calendar-widget-grid-item">19</div>
-                            <div class="calendar-widget-grid-item">20</div>
-                            <div class="calendar-widget-grid-item">21</div>
-                            <div class="calendar-widget-grid-item">22</div>
-                            <div class="calendar-widget-grid-item">23</div>
-                            <div class="calendar-widget-grid-item">24</div>
-                            <div class="calendar-widget-grid-item">25</div>
-                            <div class="calendar-widget-grid-item">26</div>
-                            <div class="calendar-widget-grid-item">27</div>
-                            <div class="calendar-widget-grid-item">28</div>
-                            <div class="calendar-widget-grid-item">29</div>
-                            <div class="calendar-widget-grid-item">30</div>
-                            <div class="calendar-widget-grid-item">31</div>
-                            <div class="calendar-widget-grid-item">32</div>
-                            <div class="calendar-widget-grid-item">33</div>
-                            <div class="calendar-widget-grid-item">34</div>
-                            <div class="calendar-widget-grid-item">35</div>
-                            <div class="calendar-widget-grid-item">36</div>
-                            <div class="calendar-widget-grid-item">37</div>
-                            <div class="calendar-widget-grid-item">38</div>
-                            <div class="calendar-widget-grid-item">39</div>
-                            <div class="calendar-widget-grid-item">40</div>
-                            <div class="calendar-widget-grid-item">41</div>
-                            <div class="calendar-widget-grid-item">42</div>
-
-                            <div class="calendar-widget-grid-item"></div>
-                            <div class="calendar-widget-grid-item"><button class="material-symbols-outlined btn" id="navBack" tabindex="0" style="font-size: 3vh ; color: var(--nav-bgc);">arrow_back_ios</button></div>
-                            <div class="calendar-widget-grid-item"></div>
-                            <div class="calendar-widget-grid-item , uppercase">day</div>
-                            <div class="calendar-widget-grid-item"></div>
-                            <div class="calendar-widget-grid-item"><button class="material-symbols-outlined btn" id="navForward" tabindex="1" style="font-size: 3vh ; color: var(--nav-bgc);">arrow_forward_ios</button></div>
-                            <div class="calendar-widget-grid-item"></div>
-                            <div class="calendar-widget-grid-item"></div>
-                            
-                            
-                        </div>
-
-                    </div>
-                </span>
-                
-                <span>
-                    <!-- <iframe src="https://calendar.google.com/calendar/embed?src=w9bd9sign@gmail.com&ctz=America%2FNew_York" style="border: 0" width="400" height="300" frameborder="0" scrolling="no"></iframe> -->
-                </span>
-
             </div>
-        </span>
+            
+            </div>
+
         </div>
+
 
 
     </main>
