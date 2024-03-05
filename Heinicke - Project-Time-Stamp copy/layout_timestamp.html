@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta   charset ="UTF-8,">
+    <meta   charset ="UTF-16,">
     <meta   name    ="viewport" content="width=device-width, initial-scale=1.0">
 <!--<script src     ="https://code.jquery.com/jquery-3.6.0.min.js"> </script> -->
 <!--<script src     ="fullcalendar.min.js">                         </script> -->
@@ -11,6 +11,9 @@
 
 </head>
 <body>
+
+    <!-- #NOTE stylesheet inside ;-) -->
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 		@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
@@ -233,7 +236,7 @@
     <header></header>
     
     <main>
-
+    <!-- #NOTE calendae inside navigation ;-) -->
         <div class="navigation">
             <span class="navigation-flex">
 
@@ -319,7 +322,8 @@
             </span>
         </div>
 
-    <div class="content">
+    <!-- #NOTE messages inside content ;-) -->
+        <div class="content">
 
 
         <div class="container">
@@ -500,39 +504,17 @@
 
         </div>
 
-    </div>
-
-        	
-
-        <div class="container">
-
-            <div class="card">
-
-
-
-            </div>
-
         </div>
-
-        	
-
-        <div class="container">
-
-            <div class="card">
-
-
-            </div>
-
-        </div>
-
-        	
-
-
 
     </main>
-
     <footer></footer>
 
+    <script>
+        // Get the calendar container and buttons
+        const calendarContainer     = document.querySelector('.calendar-widget-grid-container');
+        const navBack               = document.getElementById('navBack');
+        const navForward            = document.getElementById('navForward');
+    </script>
 
 
 
@@ -569,13 +551,3 @@
 
 
 </body>
-
-
-
-
-
-
-
-
-
-</html>
