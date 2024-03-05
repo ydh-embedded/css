@@ -503,8 +503,12 @@
     </script>
     <!-- #NOTE wir verwenden den Fade-Out -->
     <script>
-        const calendarFader = document.querySelector('.calendar');
-        calendarContainer.classList.add('fade-out');
+        function fadeOut(element) {
+          element.style.transition = 'opacity 0.5s ease-in-out';
+          element.style.opacity = '0';
+        }
+
+        fadeOut(calendar);
     </script>
 
 
