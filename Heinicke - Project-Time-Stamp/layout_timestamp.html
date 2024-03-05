@@ -27,14 +27,20 @@
         * {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             border-radius: var(--default-radius-min) ;
-            --default-radius-min:                    4px ;
+
+            --default-radius-card: calc(var(--default-padding-horizontal) + var(--default-radius-min));
+            --default-radius-min:                   4px ;
+
             --default-margin-horizontal:          4.0vh ;      /* 2.0rem  */
             --default-margin-vertikal:            7.0vw ;      /* 4.0rem  */
+            --default-margin-vertikal-min:       0.5rem ;      /*   rem  */
+
             --default-padding-horizontal:         11.2px ;      /* 0.7rem  */ 
             --default-padding-vertikal:           22.4px ;      /* 1.4rem  */
+            --default-padding-vertikal-min:       0.5rem ;      /*   rem  */
+
             --default-padding-container:    calc(var(--default-padding-horizontal) + var(--default-padding-card));
             --default-padding-card:         var(--default-padding-horizontal);
-            --default-radius-card:          calc(var(--default-padding-horizontal) + var(--default-radius-min));
 
 
             --nav-bgc: #333 ;
@@ -100,7 +106,7 @@
         .card {
 
             background-color:   #e3d5cc ;
-            margin:             var(--default-margin-horizontal) var(--default-margin-vertikal);
+            margin:             var(--default-margin-horizontal) var(--default-margin-vertikal-min);
             padding:            var(--default-padding-horizontal) var(--default-padding-vertikal);
             border-radius:      var(--default-radius-card);
             display: flex;
@@ -112,7 +118,9 @@
             display:                 flex ;
             flex-direction:        column ;
             justify-content: space-evenly ;
-            align-content:         center ;  
+            align-content:         right ;  
+            width:                   60px ;
+            
             
         }
 
@@ -245,7 +253,7 @@
             :scope {
 
             }
-            @media (max-width: 768px) {
+            @media (max-width: 425px) {
                 :scope {
 
                 }
