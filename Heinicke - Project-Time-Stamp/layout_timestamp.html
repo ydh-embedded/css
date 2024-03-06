@@ -438,16 +438,16 @@
     </footer>
     <!-- #NOTE Java-Script Anwendung -->
     <script>
-        // Get the calendar container and buttons
+        // Wir greifen auf die id zu
         const calendarContainer = document.querySelector('.calendar-widget-grid-container');
         const navBack           = document.getElementById('navBack');
         const navForward        = document.getElementById('navForward');
         
-        // Set the initial date to the current month
+        // wir setzen das date mit dem neuen Wert
         let date = new Date();
         updateCalendar(date);
         
-        // Add click event listeners for navigation buttons
+        // Das click event
         navBack.addEventListener('click', () => {
           date.setMonth(date.getMonth() - 1);
           updateCalendar(date);
@@ -458,7 +458,7 @@
           updateCalendar(date);
         });
         
-        // Update the calendar display
+        // Calender Update 
         function updateCalendar(targetDate) {
           const year = targetDate.getFullYear();
           const month = targetDate.getMonth();
