@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="index.js" defer></script>
+
+    <title>modules</title>
+    
+</head>
+<body>
+
+    
+    <!-- #NOTE wir importieren die string_utils -->
+    <script type="module">
+        import { string_utils as StringUtils } from "./module_A_date_utils.js"
+        console.log(DateUtils);
+    </script>
+    <!-- #NOTE wir importieren die Date_utils -->
+    <script type="module">
+        import { Date_utils as DateUtils } from "./module_B_date_utils.js"
+        console.log(DateUtils);
+    </script>
+
+</body>
+</html>
