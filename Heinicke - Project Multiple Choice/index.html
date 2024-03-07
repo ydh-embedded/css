@@ -51,7 +51,6 @@
 
         header {
             margin-top: 0rem;
-            background-color:    var(--header-bgc) ;
         }
 
         body {
@@ -63,7 +62,7 @@
 
         main {
             display: grid;
-            grid-template-columns: 1fr 1fr 0.5fr;       
+            grid-template-columns: 1fr ;       
 
         }
 
@@ -324,6 +323,12 @@
              cursor: not-allowed;
         }
 
+        .button-group {
+            display:        flex;
+            align-items:  center;
+
+        }
+
         iframe {
             margin-top: 1.0rem ;
         }
@@ -331,6 +336,13 @@
         .uppercase {
             text-transform: uppercase;
         }
+
+        .underline {
+            display:         flex;
+            justify-content: left;
+            color: #fff;
+        }
+
 
         footer {
             background-color: #3f342d;
@@ -348,11 +360,18 @@
     <!-- #NOTE Header -->
     <header>
         <div class="logo"></div>
-        <div class="button-group">
-			<button class="button-grey" onclick="history.back();"       >Zurück</button>
-			<button class="button-grey" onclick="window.open('_blank');">PDF</button>   
-			<button class="button-grey" onclick="window.open('_blank');">Drucken</button>   
-			<button class="button-grey" onclick="window.open('_blank');">Mit Lösungen Drucken</button>   
+			<button class="button-group-pdf material-symbols-outlined" onclick="window.open('_blank');">picture_as_pdf</button>   
+			<button class="button-group-print material-symbols-outlined" onclick="window.open('_blank');">print</button>   
+			<button class="button-group-print-extention material-symbols-outlined" onclick="window.open('_blank');">print_connect</button>   
+        </div>
+        <div class="row">
+            
+            <div class="underline">- -</div>
+            <div class="left">Name: </div>
+            <div class="underline">- -</div>
+            <div class="klasse">Class: </div>
+            <div class="underline">- -</div>
+        
         </div>
     </header>
 
@@ -361,15 +380,7 @@
      <div class="content">
         <div class="container">                       
 
-            <div class="row">
-            
-                <div class="underline">-------------------------------------------------------------------</div>
-                <div class="left">Name: </div>
-                <div class="underline">-------------------------------------------------------------------</div>
-            	<div class="klasse">Klasse/Gruppe: </div>
-                <div class="underline">-------------------------------------------------------------------</div>
-            
-            </div>
+
 
             <div class="card">
 
