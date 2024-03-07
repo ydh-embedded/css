@@ -3,13 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/favicon.ico" type="image/x-icon" rel="icon"><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"><link rel="stylesheet" type="text/css" href="/css/reset.css"><link rel="stylesheet" type="text/css" href="/css/bootstrap.css"><link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.css"><link rel="stylesheet" type="text/css" href="/css/layout.css"><link rel="stylesheet" type="text/css" href="/css/preview.css"><link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"><link rel="stylesheet" type="text/css" href="/css/redactor.css"><link rel="stylesheet" type="text/css" href="/css/print.css"><script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script><script type="text/javascript" src="/js/jquery-ui-1.10.4.min.js"></script><script type="text/javascript" src="/js/bootstrap.min.js"></script><script type="text/javascript" src="/js/redactor/redactor.min.js"></script><script type="text/javascript" src="/js/redactor/fontcolor.js"></script><script type="text/javascript" src="/js/redactor/grademarker.js"></script><script type="text/javascript" src="/js/redactor/de.js"></script>
-        
-    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    
-    
-    
+    <!-- <link href="/favicon.ico" type="image/x-icon" rel="icon"><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"><link rel="stylesheet" type="text/css" href="/css/reset.css"><link rel="stylesheet" type="text/css" href="/css/bootstrap.css"><link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.css"><link rel="stylesheet" type="text/css" href="/css/layout.css"><link rel="stylesheet" type="text/css" href="/css/preview.css"><link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"><link rel="stylesheet" type="text/css" href="/css/redactor.css"><link rel="stylesheet" type="text/css" href="/css/print.css"><script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script><script type="text/javascript" src="/js/jquery-ui-1.10.4.min.js"></script><script type="text/javascript" src="/js/bootstrap.min.js"></script><script type="text/javascript" src="/js/redactor/redactor.min.js"></script><script type="text/javascript" src="/js/redactor/fontcolor.js"></script><script type="text/javascript" src="/js/redactor/grademarker.js"></script><script type="text/javascript" src="/js/redactor/de.js"></script> -->
     
     
         <title>Multible Choice</title>
@@ -186,9 +180,19 @@
             flex-direction:        column ;
             justify-content: space-evenly ;
             width:                   55px ;
+            align-items:         flex-end ;
             padding: var(--default-padding-vertikal-min) var(--default-padding-horizontal-min);
             
             
+        }
+
+        .question-header {
+            margin:     0 0 0 0 ;
+            display:        flex;
+            flex-direction:  row;
+            flex-wrap:    nowrap;
+            align-items:  flex-end;
+            justify-content: flex-start;
         }
 
         .message-title {
@@ -196,6 +200,13 @@
             font-size:     3.3vh ;
             font-weight:     404 ;
             margin-bottom: var(--default-margin-horizontal) ;
+
+        }
+
+        .message-content {
+            --msg-bgc: #fff ;
+            background-color: var(--msg-bgc);
+            border-radius: var(--default-radius-min);
         }
 
         .message-content > p {
@@ -217,20 +228,53 @@
             margin-top:   none ;
         }
 
-        .message-timestamp {
+        .message-number {
 
             font-size:      2.6vh ;
             color:      #b89c8a ;
             font-weight:      500 ;
-            margin-left:   0.3rem ;
+            margin:   0.7rem 1vw 1vw 1vw;
         }
-
+        
         .message-points {
-
+            
             font-size:      2.6vh ;
             color:      #87ca1a ;
+            color:      #b89c8a ;
             font-weight:      500 ;
             margin-left:   0.3rem ;
+        }
+        
+        .message-checkbox-answer {
+            color:      #b89c8a ;
+            margin:     1vw ;
+            background-color: #ffffff;
+            
+        }
+        
+        .message-preview-answer {
+            color:      #4d433d ;
+            margin:     0 0 0 0 ;
+            
+        }
+        
+        .message-preview-answer-row {
+            margin:     0 0 0 0 ;
+            display:        flex;
+            flex-direction:  row;
+            flex-wrap:    nowrap;
+            align-items:  center;
+            justify-content: flex-start;
+        }
+
+        .message-footer {
+            margin:     0 0 0 0 ;
+            display:        flex;
+            flex-direction:  row;
+            flex-wrap:    nowrap;
+            align-items:  center;
+            gap:             5px;
+            justify-content: flex-end;
         }
 
         button {
@@ -290,6 +334,12 @@
 
         footer {
             background-color: #3f342d;
+            margin:     0 0 0 0 ;
+            display:        flex;
+            flex-direction:  row;
+            flex-wrap:    nowrap;
+            align-items:  center;
+            justify-content: flex-start;
         }
 
 
@@ -297,7 +347,12 @@
 
     <!-- #NOTE Header -->
     <header>
-        <div class="logo">
+        <div class="logo"></div>
+        <div class="button-group">
+			<button class="button-grey" onclick="history.back();"       >Zurück</button>
+			<button class="button-grey" onclick="window.open('_blank');">PDF</button>   
+			<button class="button-grey" onclick="window.open('_blank');">Drucken</button>   
+			<button class="button-grey" onclick="window.open('_blank');">Mit Lösungen Drucken</button>   
         </div>
     </header>
 
@@ -308,10 +363,11 @@
 
             <div class="row">
             
-                <span>
-                    <div class="left">Name: </div>
-            	    <div class="klasse">Klasse/Gruppe: </div>
-                </span>
+                <div class="underline">-------------------------------------------------------------------</div>
+                <div class="left">Name: </div>
+                <div class="underline">-------------------------------------------------------------------</div>
+            	<div class="klasse">Klasse/Gruppe: </div>
+                <div class="underline">-------------------------------------------------------------------</div>
             
             </div>
 
@@ -320,15 +376,29 @@
                 <section class="message">
 
                     <div class="question-header">
-                        <span class="message-timestamp">#1</span>
-                        <span class="message-title">Frage</span>
-                        <span class="message-points">Punkte</span>
+                        <span class="message-number">#1</span>
+                        <span class="message-title">Was ist der Hauptzweck der Verwendung von TypeScript mit React?</span>
+
                     </div>
 
                     <div class="message-content">
-                        <textarea type="text" class="message-question" id="1.0" placeholder="Fragestellung">
 
-                        </textarea>
+                        <div class="message-preview-answer-row">
+                            <span class="Antwort_A message-checkbox-answer material-symbols-outlined">check_box_outline_blank</span>
+                            <span class="message-preview-answer">Hinzufügen von statischer Typisierung zu React-Komponenten </span>   
+                        </div>
+                        <div class="message-preview-answer-row">
+                        	<span class="Antwort_B message-checkbox-answer material-symbols-outlined">check_box_outline_blank</span>
+                            <span class="message-preview-answer">Verbessern der Leistung von React-Anwendungen</span>
+                        </div>
+                        <div class="message-preview-answer-row">
+                            <span class="Antwort_C message-checkbox-answer material-symbols-outlined">check_box_outline_blank</span>
+                            <span class="message-preview-answer">Vereinfachen des Entwicklungsprozesses</span>    
+                        </div>
+                        <div class="message-preview-answer-row">
+                            <span class="Antwort_D message-checkbox-answer material-symbols-outlined">check_box_outline_blank</span>
+                            <span class="message-preview-answer">Ermöglichen der gemeinsamen Nutzung von Code zwischen Frontend und Backend</span>   
+                        </div>
                     </div>
 
                     <div class="message-footer">
@@ -341,7 +411,9 @@
 
                 </section>
 
-                <span class="card-aside">O 
+                <span class="card-aside">
+                    <span class="message-points">1</span>
+                    <!-- <span class="message-points">Punkt</span> -->
                 </span>
 
             </div>
@@ -372,163 +444,7 @@
 
 
 
-<html><head>
 
-	
-</head>
-<body style="background-color: #F2F2F2;">
-	<div class="container" id="previewContainer">	
-						<div class="row">
-	<div class="">
-		<div class="left">
-			<div class="logo">
-			</div>
-		</div>
-	</div>	
-	<div class="">
-
-		<div class="right buttongroup">
-			<button class="button-grey" onclick="history.back();">Zurück</button>
-			<button class="button-grey" onclick="window.open('/tests/pdf/58195.pdf', '_blank');">PDF</button>   
-			<button class="button-grey" onclick="window.open('/tests/printit/58195', '_blank');">Drucken</button>   
-			<button class="button-grey" onclick="window.open('/tests/printwithsolutions/58195', '_blank');">Mit Lösungen Drucken</button>   
-			<button class="button-grey" onclick="self.location.href='/publishes/test/58195'">Veröffentlichen</button>
-        </div>
-	</div>
-</div>
-
-
-	<!-- Testtitel -->
-	<div class="col-xs-12">
-			<div class="test_title">Der Erste Test</div>
-	</div>
-	</div>
-
-
-
-<div class="previewheader">
-	<div class="row">
-	
-		<!-- deskriptoren -->
-		<div class="col-xs-1">
-			<div class="table-header nrquest">Nr</div>
-		</div>
-		<div class="col-xs-10">
-			<div class="table-header">Frage</div>
-		</div>
-		<div class="col-xs-1">
-			<div class="table-header right">Punkte</div>
-		</div>
-	</div>
-</div>
-<!-- beginn frage -->
-<div class="previewquestionbox">
-	<!-- fragennummer, frage, punkte -->
-	<div class="row">
-		<div class="col-xs-1 the10pixlers">
-				<div class="nrquest">1</div>
-		</div>
-		<div class="col-xs-10 the10pixlers">
-				Wie lautet die Spezifikation für die Sprache JavaScript?<br>		</div>
-		<div class="col-xs-1 the10pixlers">
-				<div class="right pointsdesc">1</div>
-		</div>
-
-	</div>
-	<!-- zusatztext -->
-		<div class="row">
-		<div class="col-xs-1 the10pixlers">
-				&nbsp;
-		</div>
-				<div class="col-xs-10 the10pixlers">
-				<div class="row">
-				<!-- images bottom, answers top -->
-					<div class="col-xs-12">
-						<div class="row">
-						<!-- inner answergrid-->
-																								<div class="col-xs-6 the10pixlers">
-										<div class="answer_container"><div class="checkpox_preview"></div>TypeScript</div>
-									</div>
-																<div class="col-xs-6 the10pixlers">
-										<div class="answer_container"><div class="checkpox_preview"></div>ECMAScript</div>
-									</div>
-																<div class="col-xs-6 the10pixlers">
-										<div class="answer_container"><div class="checkpox_preview"></div>JScript</div>
-									</div>
-																<div class="col-xs-6 the10pixlers">
-										<div class="answer_container"><div class="checkpox_preview"></div>Java</div>
-									</div>
-															
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-1 the10pixlers">
-			&nbsp;
-		</div>	
-	</div>
-</div>
-<div class="previewquestionbox">
-	<!-- fragennummer, frage, punkte -->
-	<div class="row">
-		<div class="col-xs-1 the10pixlers">
-				<div class="nrquest">2</div>
-		</div>
-		<div class="col-xs-10 the10pixlers">
-				Wie lautet die Spezifikation für die Sprache JavaScript?<br>		</div>
-		<div class="col-xs-1 the10pixlers">
-				<div class="right pointsdesc">1</div>
-		</div>
-
-	</div>
-	<!-- zusatztext -->
-		<div class="row">
-		<div class="col-xs-1 the10pixlers">
-				&nbsp;
-		</div>
-				<div class="col-xs-10 the10pixlers">
-				<div class="row">
-				<!-- images bottom, answers top -->
-					<div class="col-xs-12">
-						<div class="row">
-						<!-- inner answergrid-->
-																								<div class="col-xs-6 the10pixlers">
-										<div class="answer_container"><div class="checkpox_preview"></div>TypeScript</div>
-									</div>
-																<div class="col-xs-6 the10pixlers">
-										<div class="answer_container"><div class="checkpox_preview"></div>ECMAScript</div>
-									</div>
-																<div class="col-xs-6 the10pixlers">
-										<div class="answer_container"><div class="checkpox_preview"></div>JScript</div>
-									</div>
-																<div class="col-xs-6 the10pixlers">
-										<div class="answer_container"><div class="checkpox_preview"></div>Java</div>
-									</div>
-															
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-1 the10pixlers">
-			&nbsp;
-		</div>	
-	</div>
-</div>
-		
-		
-	</div>
-	<script type="text/javascript">
-	
-		$( document ).ready(function() {
-			$(".navbar-toggle").click(function() {
-				$(".toggle_div_hidden" ).toggle();
-			});
-		
-		});
-		
-	</script>
-	
-		
 
 
 </body></html>
