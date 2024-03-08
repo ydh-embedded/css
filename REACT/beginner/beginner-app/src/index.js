@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+/* #FIXME wir importieren questions */
+import questions from "./questions" ;
+    questions.forEach( q => console.log(q.question))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
