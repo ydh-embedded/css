@@ -48,7 +48,21 @@
 
 ![build](./screens/scss.jpg)
 
+-   wir erkennen, dass ein Fehler erzeugt wird :
 
+        you need an appropriate loader to handle this file...
+
+-   auf der folgenden WebSite  [Link](https://webpack.js.org/)
+finden wir die DOM Loader optionen
+-   wir installieren unter anderen den [Style-Loader](https://webpack.js.org/concepts/loaders/)
+        
+        npm install --save-dev style-loader
+    .
+
+        npm install --save-dev css-loader
+    .
+
+        npm install --save-dev ts-loader
 
 
 
