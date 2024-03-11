@@ -1,26 +1,22 @@
 const path = require('path') ;
+const BundleAnalyserPlugin = require ('webpack-bundle-analyser').BundleAnalyserPlugin ;
 
-module.exports = {
-        entry:  './src/index.js'    ,
-    }
-    
-    
-    const path = require('path');
-    
     module.exports = {
+
         target: 'node',
         mode: 'development',
         entry: './src/index.js',
+
         output: {
             filename:   'awesome.js' ,
             path:       path.resolve(__dirname, 'dist') ,
         }   ,
+
         externals: [
-            nodeExternals({
-      modulesDir: path.join(__dirname, '../../node_modules')
-    })
-  ],
-  module: {
+            nodeExternals({ modulesDir: path.join(__dirname, '../../node_modules') })
+        ]   ,
+
+        module: {
     rules: [
       {
         test: /\.scss$/,
@@ -32,5 +28,9 @@ module.exports = {
         use : [ 'ts-loader'  ]
       } ,
     ]
-  }
-};
+        }   ,
+
+        plugins: [
+    new BundleAnalyserPlugin()
+        ]   ,
+    };

@@ -81,6 +81,20 @@ finden wir die DOM Loader optionen
 
 ## Plugins
 
+-    wir führen den folgenden Befehl aus, um den Bundle - Analyser zu installieren
+
+        
+                npm install --save-dev webpack-bundle-analyser
+.
+
+![build](./screens/analyser.jpg)
+
+                const BundleAnalyserPlugin = require ('webpack-bundle-analyser').BundleAnalyserPlugin ;
+
+
+![build](./screens/plugin.jpg)
+
+                
 
 
 
