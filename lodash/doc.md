@@ -60,16 +60,7 @@
 finden wir die DOM Loader optionen
 -   wir installieren unter anderen den [Style-Loader](https://webpack.js.org/concepts/loaders/)
         
-        npm install --save-dev style-loader
-    .
 
-        npm install --save-dev css-loader
-    .
-
-        npm install --save-dev ts-loader
-    .
-
-        npm install --save-dev sass-loader
     .
 
         npm install sass-loader css-loader ts-loader style-loader --save-dev
