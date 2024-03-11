@@ -63,6 +63,17 @@ finden wir die DOM Loader optionen
     .
 
         npm install --save-dev ts-loader
+    .
+
+        npm install --save-dev sass-loader
+
+-   wir schreiben in die webpack.config.js folgende Befehle:
+
+![build](./screens/module-rules.jpg)
+
+
+## Plugins
+
 
 
 
