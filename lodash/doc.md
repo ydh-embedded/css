@@ -124,8 +124,12 @@ finden wir die DOM Loader optionen
 
 .
 
+## dev npm  bugfix
 
-![devnpm](./screens/package.devnpm.jpg)
+![devnpm](./screens/devnpm.JPG)
+
+
+                npm install webpack-bundle-analyzer --save-dev
 
 
 
