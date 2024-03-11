@@ -14,3 +14,9 @@
 
 
 [Entwickler-Online-Developement](https://jsfiddle.net/boilerplate/react-jsx)
+
+
+[PSEUDO-Elements](https://www.tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/)
+
+
+[Git-Hub-Pages erstellen](https://www.youtube.com/watch?v=BT4WzyT2g8k)
