@@ -139,6 +139,11 @@ finden wir die DOM Loader optionen
 
                         npm install sass --save-dev
 
+## unbundle mit SNOWPACK
+
+![snowpack](./screens/snowpack.JPG)
+
+
 
 
 
