@@ -94,7 +94,14 @@ finden wir die DOM Loader optionen
 
 ![build](./screens/plugin.jpg)
 
-                
+.
+
+-   wir installieren einen dev-server mit:
+
+                npm install --save-dev-webpack-dev-server
+
+![build](./screens/devServer.jpg)
+
 
 
 

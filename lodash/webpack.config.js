@@ -31,6 +31,13 @@ const BundleAnalyserPlugin = require ('webpack-bundle-analyser').BundleAnalyserP
         }   ,
 
         plugins: [
-    new BundleAnalyserPlugin()
+            new BundleAnalyserPlugin()
         ]   ,
+
+        devServer: {
+
+            contentBase: path.join(__dirname, 'public') ,
+            port: 9009
+        }   ,
+        
     };
