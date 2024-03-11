@@ -48,6 +48,10 @@
 
 ![build](./screens/scss.jpg)
 
+-   wir führen folgenden Befehl aus um in den Modus **developement** zu wechseln
+                
+        webpack --mode development
+
 -   wir erkennen, dass ein Fehler erzeugt wird :
 
         you need an appropriate loader to handle this file...
@@ -66,6 +70,9 @@ finden wir die DOM Loader optionen
     .
 
         npm install --save-dev sass-loader
+    .
+
+        npm install sass-loader css-loader ts-loader style-loader --save-dev
 
 -   wir schreiben in die webpack.config.js folgende Befehle:
 
