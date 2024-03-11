@@ -102,6 +102,30 @@ finden wir die DOM Loader optionen
 
 ![build](./screens/devServer.jpg)
 
+-    wir fügen in der package.json folgende Zeile hinzu:
+
+                    "dev"  : "webpack serve"
+.
+
+![build](./screens/package.json-dev.jpg)
+
+- wir führen den nächsten Befehl aus:
+
+                PS C:\working-directory\css\lodash> npm run dev
+
+                > lodash@1.0.0 dev
+                > webpack serve   
+
+                [webpack-cli] For using 'serve' command you need to install:
+                            'webpack-dev-server' package.
+                
+                [webpack-cli] Would you like to install 'webpack-dev-server'
+                            package? (That will run 'npm install -D webpack-dev-server') (Y/n) y
+
+.
+
+
+![devnpm](./screens/package.devnpm.jpg)
 
 
 
