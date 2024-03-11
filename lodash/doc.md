@@ -129,7 +129,9 @@ finden wir die DOM Loader optionen
 ![devnpm](./screens/devnpm.JPG)
 
 
-                npm install webpack-bundle-analyzer --save-dev
+                npm install webpack-bundle-analyzer --save-dev -force
+
+                npm install webpack-node-externals --save-dev
 
 
 
