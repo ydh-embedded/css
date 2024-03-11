@@ -64,6 +64,15 @@ finden wir die DOM Loader optionen
     .
 
         npm install sass-loader css-loader ts-loader style-loader --save-dev
+        
+
+-    um LESS zu verwenden installieren wir den pre-Processor mit:
+
+         npm install less-loader --save-dev
+.
+       ![build](./screens/LESS.jpg)
+
+
 
 -   wir schreiben in die webpack.config.js folgende Befehle:
 
