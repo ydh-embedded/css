@@ -18,4 +18,40 @@
 
 ![index.html](./screens/index.jpg)
 
+-   mit folgendene Befehl weisen wir die Packages zu, dass Sie vom Browser gefunden werden können
+
+        npm install --save-dev webpack webpack-cli web
+
+-   wir fügen in der **package.json** Datei das build hinzu
+
+![index.html](./screens/package.json-build.jpg)
+
+-   webpack will analysed the CODE mit:
+
+        npm run build
+
+-   nachdem es analysiert wurde wird ein **dist** Ordner aktiv
+
+![build](./screens/build.jpg)
+-   wir binden den src Code im Header ein :
+
+        <script src ="../dist/main.js>
+
+-   wir erstellen eine **webpack.config.js** Datei & fügen folgende Zeile hinzu
+
+![build](./screens/webpack.jpg)
+
+## Loader
+-   wir erstellen eine S-CSS Datei & und importieren diese mit:
+
+        import './style.scss' ;
+
+![build](./screens/scss.jpg)
+
+
+
+
+
+
+
 
