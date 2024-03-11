@@ -134,6 +134,10 @@ finden wir die DOM Loader optionen
                 npm install webpack-node-externals --save-dev
 
 
+![externals](./screens/externals.JPG)
+
+
+                        npm install sass --save-dev
 
 
 
