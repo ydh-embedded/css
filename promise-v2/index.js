@@ -1,22 +1,23 @@
-const fullfillBtn = document.querySelector('#fullfill')
-const rejectBtn   = document.querySelector('#reject')
-const resultInput = document.querySelector('#resultInput')
-const { promise , resolve , reject } = Promise.withResolvers()
 
-function wait(milliseconds) {
+
+function wait(milliseconds , result ) {
     const {fullfillBtn , rejectBtn , resultInput} = Promise.withResolvers()
-    window.setTimeout(resolve, milliseconds)
+    window.setTimeout(() => resolve(result), milliseconds)
     return promise
 }
 
-console.log(fullfillBtn , rejectBtn , resultInput);
-console.log( promise , resolve , reject )
+function downloadAsync(url) {
+    console.log("Download gestartet");
+    return waitAsync( 5000 , "010000101010")
+}
+
+const downloadPromise = downloadFileAsync(http://excample)
+
 
 fullfillBtn.addEventListener("click" , event => {
     resolve("Positives Ergebnis");
     console.log(promise);
 })
-
 
 rejectBtn.addEventListener("click" , event => {
     reject("Negatives Ergebnis");
