@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="/favicon.ico" type="image/x-icon" rel="icon"><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"><link rel="stylesheet" type="text/css" href="/css/reset.css"><link rel="stylesheet" type="text/css" href="/css/bootstrap.css"><link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.css"><link rel="stylesheet" type="text/css" href="/css/layout.css"><link rel="stylesheet" type="text/css" href="/css/preview.css"><link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"><link rel="stylesheet" type="text/css" href="/css/redactor.css"><link rel="stylesheet" type="text/css" href="/css/print.css"><script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script><script type="text/javascript" src="/js/jquery-ui-1.10.4.min.js"></script><script type="text/javascript" src="/js/bootstrap.min.js"></script><script type="text/javascript" src="/js/redactor/redactor.min.js"></script><script type="text/javascript" src="/js/redactor/fontcolor.js"></script><script type="text/javascript" src="/js/redactor/grademarker.js"></script><script type="text/javascript" src="/js/redactor/de.js"></script> -->
-    
-    
-        <title>Multible Choice</title>
+
+
+    <title>Promise</title>
 </head>
 <body>
+        
+    <!-- #NOTE java intern -->
+    <script>
+            
+            const mysql = require('mysql');
 
+            const connection = mysql.createConnection({
+              host: 'localhost',
+              user: 'user',
+              password: 'password',
+              database: 'database'
+            });
+            
+            connection.connect((err) => {
+              if (err) throw err;
+              console.log('Connected to the database!');
+            });
+            
+            const queryPromise = (query) => {
+              return new Promise((resolve, reject) => {
+                connection.query(query, (err, results) => {
+                  if (err) reject(err);
+                  else resolve(results);
+                });
+              });
+            };
+            
+            const getData = async () => {
+              try {
+                const data1 = await queryPromise('SELECT * FROM table1');
+                const data2 = await queryPromise('SELECT * FROM table2');
+                // Do something with data1 and data2
+              } catch (err) {
+                console.error(err);
+              } finally {
+                // Close the connection
+                connection.end();
+              }
+            };
+            
+            getData();
+      
+    </script>
+    
     <!-- #NOTE Stylesheet intern -->
+
     <style>
 		@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 
@@ -355,105 +398,13 @@
 
     </style>
 
-    <!-- #NOTE Header -->
-    <header>
-        <div class="logo"></div>
-			<button class="button-group-pdf material-symbols-outlined" onclick="window.open('_blank');">picture_as_pdf</button>   
-			<button class="button-group-print material-symbols-outlined" onclick="window.open('_blank');">print</button>   
-			<button class="button-group-print-extention material-symbols-outlined" onclick="window.open('_blank');">print_connect</button>   
-        </div>
-        <div class="row">
-            
-            <div class="underline">- -</div>
-            <div class="left">Name: </div>
-            <div class="underline">- -</div>
-            <div class="klasse">Class: </div>
-            <div class="underline">- -</div>
+    <div id="kascade">
+
+        <button class="fullfill" id="fullfill">Bestätigen</button>
+        <button class="reject" id="reject">Ablehnen</button>
+        <input type="text" id="result" placeholder="Ergebnis" readonly>
         
-        </div>
-    </header>
-
-    <!-- #NOTE main -->
-    <main>
-     <div class="content">
-        <div class="container">                       
-
-
-
-            <div class="card">
-
-                <section class="message">
-
-                    <div class="question-header">
-                        <span class="message-number">#1</span>
-                        <span class="message-title">Was ist der Hauptzweck der Verwendung von TypeScript mit React?</span>
-
-                    </div>
-
-                    <div class="message-content">
-
-                        <div class="message-preview-answer-row">
-                            <span class="Antwort_A message-checkbox-answer material-symbols-outlined">check_box_outline_blank</span>
-                            <span class="message-preview-answer">Hinzufügen von statischer Typisierung zu React-Komponenten </span>   
-                        </div>
-                        <div class="message-preview-answer-row">
-                        	<span class="Antwort_B message-checkbox-answer material-symbols-outlined">check_box_outline_blank</span>
-                            <span class="message-preview-answer">Verbessern der Leistung von React-Anwendungen</span>
-                        </div>
-                        <div class="message-preview-answer-row">
-                            <span class="Antwort_C message-checkbox-answer material-symbols-outlined">check_box_outline_blank</span>
-                            <span class="message-preview-answer">Vereinfachen des Entwicklungsprozesses</span>    
-                        </div>
-                        <div class="message-preview-answer-row">
-                            <span class="Antwort_D message-checkbox-answer material-symbols-outlined">check_box_outline_blank</span>
-                            <span class="message-preview-answer">Ermöglichen der gemeinsamen Nutzung von Code zwischen Frontend und Backend</span>   
-                        </div>
-                    </div>
-
-                    <div class="message-footer">
-                        <span class="message-answer">richtige Antwort</span>
-                        <span style="color: rgb(0, 255, 0)"
-                              class="answer material-symbols-outlined message-read-confirmation">
-                                     done_all
-                        </span>
-                    </div>
-
-                </section>
-
-                <span class="card-aside">
-                    <span class="message-points">1</span>
-                    <!-- <span class="message-points">Punkt</span> -->
-                </span>
-
-            </div>
-
-        </div>
-
-        <div class="container" id="card-container">
-                ...
-        </div>
-     </div>
-    </main>
-
-    <!-- #NOTE footer -->
-    <footer>
-        <div class="footer">
-        </div>
-    </footer>
+    </div>
     
-
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-</body></html>
