@@ -8,6 +8,45 @@
     <title>Promise</title>
 </head>
 <body>
+        
+    <!-- #NOTE java intern -->
+    <script>
+            
+        const kascade = document.getElementById("kascade");
+            
+        const addColor = (color) => {
+          return (element) => {
+            element.style.backgroundColor = color;
+          };
+        };
+        
+        Promise.resolve()
+          .then(() => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                kascade.textContent = "First then block";
+                resolve();
+              }, 1000);
+            }).then(addColor("red"));
+          })
+          .then(() => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                kascade.textContent = "Second then block";
+                resolve();
+              }, 1000);
+            }).then(addColor("green"));
+          })
+          .then(() => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                kascade.textContent = "Third then block";
+                resolve();
+              }, 1000);
+            }).then(addColor("blue"));
+          });
+      
+    </script>
     
     <!-- #NOTE Stylesheet intern -->
 
@@ -355,47 +394,13 @@
 
     </style>
 
-    <button class="fullfill" id="fullfill">Bestätigen</button>
-    <button class="reject" id="reject">Ablehnen</button>
-    <input type="text" id="result" placeholder="Ergebnis" readonly>
-    <!-- #NOTE java intern -->
-    <script>
-            
-        const kascade = document.getElementById("kascade");
-            
-        const addColor = (color) => {
-          return (element) => {
-            element.style.backgroundColor = color;
-          };
-        };
+    <div id="kascade">
+
+        <button class="fullfill" id="fullfill">Bestätigen</button>
+        <button class="reject" id="reject">Ablehnen</button>
+        <input type="text" id="result" placeholder="Ergebnis" readonly>
         
-        Promise.resolve()
-          .then(() => {
-            return new Promise((resolve) => {
-              setTimeout(() => {
-                kascade.textContent = "First then block";
-                resolve();
-              }, 1000);
-            }).then(addColor("red"));
-          })
-          .then(() => {
-            return new Promise((resolve) => {
-              setTimeout(() => {
-                kascade.textContent = "Second then block";
-                resolve();
-              }, 1000);
-            }).then(addColor("green"));
-          })
-          .then(() => {
-            return new Promise((resolve) => {
-              setTimeout(() => {
-                kascade.textContent = "Third then block";
-                resolve();
-              }, 1000);
-            }).then(addColor("blue"));
-          });
-      
-    </script>
+    </div>
     
 </body>
 </html>
