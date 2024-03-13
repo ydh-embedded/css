@@ -14,25 +14,26 @@ Ein Versprechen gilt als beglichen, wenn es entweder erfüllt oder abgelehnt wir
 
 Im Opera-Browser können Sie die verwenden Promise Objekt zur Verarbeitung asynchroner Operationen.
 
-Man kann den Zustand des Promise nur mit dem Aufruf ausgeben
+Man kann den Zustand des Promise nur mit dem Aufruf ausgeben. 
+Promise kann die Begrifflichkeit ``settled`` annehmen, dass bedeutet egal ob das ergebniss positiv oder negativ ist es steht damit schon fest.
 
 
 Hier ist ein Beispiel für ein Versprechen in einer asynchronen Funktion:
 
-<script>
-
-    async function fetchData() {
-      try {
-        const response = await fetch('https://api.example.com/data');
-        const data = await response.json();
-        console.log(data);
-
-      } catch (error) {
-
-        console.error('Error fetching data:', error);
-      }
-    }
-</script>
+    <script>
+    
+        async function fetchData() {
+          try {
+            const response = await fetch('https://api.example.com/data');
+            const data = await response.json();
+            console.log(data);
+    
+          } catch (error) {
+        
+            console.error('Error fetching data:', error);
+          }
+        }
+    </script>
 
 In diesem Beispiel, ```fetchData``` ist eine asynchrone Funktion, die mithilfe der API Daten von einer Remote-API abruft fetch Funktion. Das fetch Die Funktion gibt ein Versprechen zurück, das in ein Antwortobjekt aufgelöst wird, das dann mit dem in JSON konvertiert wird json Methode. Wenn während des Abrufs oder der JSON-Konvertierung Fehler auftreten, werden diese erfasst und an der Konsole protokolliert.
 
