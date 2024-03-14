@@ -1,43 +1,37 @@
-const path = require('path') ;
-const BundleAnalyserPlugin = require ('webpack-bundle-analyser').BundleAnalyserPlugin ;
+const path = require('path');
+const nodeExternals = require('webpack-node-externals');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-    module.exports = {
+module.exports = {
+  target: 'node',
+  mode: 'development',
+  entry: './src/index.js',
 
-        target: 'node',
-        mode: 'development',
-        entry: './src/index.js',
+  output: {
+    filename: 'awesome.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
 
-        output: {
-            filename:   'awesome.js' ,
-            path:       path.resolve(__dirname, 'dist') ,
-        }   ,
+  externals: [
+    nodeExternals({ modulesDir: path.join(__dirname, '../../node_modules') }),
+  ],
 
-        externals: [
-            nodeExternals({ modulesDir: path.join(__dirname, '../../node_modules') })
-        ]   ,
-
-        module: {
+  module: {
     rules: [
       {
         test: /\.scss$/,
-        use : [ 'style-loader',
-                'css-loader',
-                'sass-loader']
-      } ,
-      { test: /\.ts$/,
-        use : [ 'ts-loader'  ]
-      } ,
-    ]
-        }   ,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      { test: /\.ts$/, use: ['ts-loader'] },
+    ],
+  },
 
-        plugins: [
-            new BundleAnalyserPlugin()
-        ]   ,
+  plugins: [new BundleAnalyzerPlugin()],
 
-        devServer: {
-
-            contentBase: path.join(__dirname, 'public') ,
-            port: 9009
-        }   ,
-        
-    };
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    port: 9009,
+  },
+};

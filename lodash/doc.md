@@ -124,9 +124,24 @@ finden wir die DOM Loader optionen
 
 .
 
+## dev npm  bugfix
 
-![devnpm](./screens/package.devnpm.jpg)
+![devnpm](./screens/devnpm.JPG)
 
+
+                npm install webpack-bundle-analyzer --save-dev -force
+
+                npm install webpack-node-externals --save-dev
+
+
+![externals](./screens/externals.JPG)
+
+
+                        npm install sass --save-dev
+
+## unbundle mit SNOWPACK
+
+![snowpack](./screens/snowpack.JPG)
 
 
 
