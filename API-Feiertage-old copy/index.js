@@ -30,7 +30,7 @@ inputForm.addEventlistener("submit" , event => {
 
 
 
-  getHolidays(selectedYear , selectedCountry)
+  getTranslation(selectedYear , selectedCountry)
     .then(holidays => renderHolidays (year , countryCode) )
     .catch(error => console.error(error))
     .finally(() => { isRequestInProgress = false })
@@ -41,7 +41,7 @@ function formatDate(date) {
   [ day , month , year] .map( n=> ("" + n).padStart(2 , "0")).join(".")                             //#TODO wir mappen das Datum & geben die 0 vor & fügen diese mit einem Punkt Zusammen
 }
 
-async function getHolidays( year , countryCode ) {
+async function getTranslation( year , countryCode ) {
   let url = "https://date.nager.at/api/v2/publicholidays"
 
       url += "/" + encodeURIComponent(year)
