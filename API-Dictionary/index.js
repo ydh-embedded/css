@@ -2,8 +2,8 @@ const $                   = document.querySelector.bind(document)
 const $$                  = document.querySelectorAll.bind(document)
 
 const inputForm           = $("#input-form")
-const yearInput           = $("#year")
-const countryCodeInput    = $("#country-code")
+const yearInput           = $("#year")              /* #FIXME IDs anpassen!! */
+const countryCodeInput    = $("#country-code")      /* #FIXME IDs anpassen!! */
 const wordsTable        = $("#words")
 let   isRequestInProgress = false
 
